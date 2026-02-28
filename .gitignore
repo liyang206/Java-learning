@@ -30,13 +30,13 @@ bin/
 .DS_Store
 
 # ==================== 额外补充（IntelliJ + 通用）====================
-# IntelliJ IDEA 项目文件（强烈建议忽略）
+# IntelliJ IDEA 项目文件
 .idea/
 *.iml
 *.ipr
 *.iws
 
-# 编译输出和临时文件（你的文件里已经有 out/bin，但再加一层保险）
+# 编译输出和临时文件
 target/
 *.class
 *.log
