@@ -53,20 +53,22 @@ public class String01 {
         int cpCount = str.codePointCount(0, str.length());
         System.out.println(cpCount);
 
-        //获取第i个码点（注意，这里的i表示的是索引）
+        //获取第i个码点值（注意，这里的i表示的是索引）
         Scanner sc = new Scanner(System.in);
         int i = sc.nextInt() % cpCount;
         int index = str.offsetByCodePoints(0, i);  //转换为char级别对应的索引（因为可能一个码点有两个char）
-        int cp =  str.codePointAt(index);
+        int cp =  str.codePointAt(index);  //获取到的是码点值
 
-        //将第i个码点转换为字符
+        //将第i个码点值转换为字符
         String str7 = Character.toString(cp);  //如果是Character.toChars(codePointCount),那么返回的就是char[]
         System.out.println(str7);
 
         //获取字符串
         StringBuffer sb = new StringBuffer();
         for ( int j = 0; j < cpCount ; j++ ) {
-            sb.appendCodePoint(str.codePointAt(j));  //这里底层其实依然是利用sb.append( Character.toChars(codePointCount) )
+            int cp1 = str.codePointAt(j);
+            sb.appendCodePoint(cp1);//这里底层其实依然是利用sb.append( Character.toChars(codePointCount) )
+            j += Character.charCount(cp1);
         }
         System.out.println(sb);
         System.out.println(sb.toString());
