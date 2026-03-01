@@ -27,6 +27,21 @@ public class String01 {
         //有重复的拼接
         String str6 = name.repeat(5);
         System.out.println(str6);
-
+		
+		
+		//空串和Null串
+		//检验空串
+		if ( name.length() == 0 ){
+			System.out.println("name是一个空串");
+		}
+		if ( str.equals("") ){
+			System.out.println("str是一个空串");
+		}
+		
+		//检验Null串
+		if ( str1 == null ){
+			System.out.println("str1是一个Null串");
+		}
+		
     }
 }
