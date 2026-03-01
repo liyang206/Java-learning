@@ -31,8 +31,9 @@ public class String01 {
         System.out.println(str6);
 		
 		
-		//空串和Null串
+		//空串和Null串(以下均为演示代码)
 		//检验空串
+		/*
 		if ( name.length() == 0 ){
 			System.out.println("name是一个空串");
 		}
@@ -44,16 +45,19 @@ public class String01 {
 		if ( str1 == null ){
 			System.out.println("str1是一个Null串");
 		}
+		*/
 
         //获取字符串的真实长度
+        //注意codePointCount和length是不一样的
+        //length可能会因为emoji的出现略大
         int cpCount = str.codePointCount(0, str.length());
         System.out.println(cpCount);
 
         //获取第i个码点
         Scanner sc = new Scanner(System.in);
         int i = sc.nextInt() % cpCount;
-        int index = str.offsetByCodePoints(0, i);
-        int cp =  str.codePointAt(i);
+        int index = str.offsetByCodePoints(0, i);  //转换为码点的坐标（因为可能一个码点有两个char）
+        int cp =  str.codePointAt(index);
 
         //将第i个码点转换为字符
         String str7 = Character.toString(cp);  //如果是Character.toChars(codePointCount),那么返回的就是char[]
