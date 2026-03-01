@@ -53,10 +53,10 @@ public class String01 {
         int cpCount = str.codePointCount(0, str.length());
         System.out.println(cpCount);
 
-        //获取第i个码点
+        //获取第i个码点（注意，这里的i表示的是索引）
         Scanner sc = new Scanner(System.in);
         int i = sc.nextInt() % cpCount;
-        int index = str.offsetByCodePoints(0, i);  //转换为码点的坐标（因为可能一个码点有两个char）
+        int index = str.offsetByCodePoints(0, i);  //转换为char级别对应的索引（因为可能一个码点有两个char）
         int cp =  str.codePointAt(index);
 
         //将第i个码点转换为字符
