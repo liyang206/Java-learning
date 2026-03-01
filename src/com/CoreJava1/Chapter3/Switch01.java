@@ -37,7 +37,7 @@ public class Switch01 {
         Size itemSize = Size.valueOf(scan.next());
 
         String label = switch (itemSize){
-            case SMALL -> "S";
+            case SMALL -> "S";  //这里就不需要使用Size.SMALL了
             case MEDIUM -> "M";
             case LARGE -> "L";
             default -> "?";
