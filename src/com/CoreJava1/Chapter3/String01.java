@@ -1,5 +1,7 @@
 package com.CoreJava1.Chapter3;
 
+import java.util.Scanner;
+
 public class String01 {
     public static void main(String[] args) {
         String str = "Hello";
@@ -42,6 +44,27 @@ public class String01 {
 		if ( str1 == null ){
 			System.out.println("str1是一个Null串");
 		}
-		
+
+        //获取字符串的真实长度
+        int cpCount = str.codePointCount(0, str.length());
+        System.out.println(cpCount);
+
+        //获取第i个码点
+        Scanner sc = new Scanner(System.in);
+        int i = sc.nextInt() % cpCount;
+        int index = str.offsetByCodePoints(0, i);
+        int cp =  str.codePointAt(i);
+
+        //将第i个码点转换为字符
+        String str7 = Character.toString(cp);  //如果是Character.toChars(codePointCount),那么返回的就是char[]
+        System.out.println(str7);
+
+        //获取字符串
+        StringBuffer sb = new StringBuffer();
+        for ( int j = 0; j < cpCount ; j++ ) {
+            sb.appendCodePoint(str.codePointAt(j));  //这里底层其实依然是利用sb.append( Character.toChars(codePointCount) )
+        }
+        System.out.println(sb);
+        System.out.println(sb.toString());
     }
 }
